@@ -1,0 +1,49 @@
+* {
+	font-family: 'Hammersmith One', sans-serif;
+}
+
+    /* HEADER */
+
+header{
+    display: block;
+    width: 100%;
+    margin: auto;
+    padding: 15px;
+    letter-spacing: .1px;
+}
+
+.menu{
+        width: 55%;
+        margin: auto;
+        margin-top: 2%;
+        float: right;
+        position: relative;
+        font-family: 'Josefin-Sans', sans-serif;
+        font-size: 13px;
+    }
+
+    .menu ul{
+        list-style: none;
+        display: block;
+        margin: 0;
+        float: left;
+    }
+
+.barra-sup > li {
+    position: relative;
+    display: inline-block;
+    float: left;
+}
+
+.barra-sup>li>a {
+    display: block;
+    padding: 15px 20px;
+    color: black;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.barra-sup li a:hover{
+    text-decoration: underline;
+    transition: all .3s;
+}
