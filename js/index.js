@@ -1,4 +1,5 @@
 let header = document.getElementById("header");
+let logo = document.getElementById("logo");
 
 window.addEventListener('scroll', ()=>{
     let scroll = window.scrollY;
@@ -7,3 +8,16 @@ window.addEventListener('scroll', ()=>{
     else
         header.style.background = 'transparent'
 })
+
+function hover(logo) {
+    logo.style.transitionDuration = "0.5s";
+    logo.setAttribute('src', "/imgs/EMOCINES.png");
+
+}
+
+function unhover(logo) {
+    logo.style.transitionDuration = "0.5s";
+    logo.setAttribute('src', "/imgs/ELMOCINES.png");
+
+}
+
