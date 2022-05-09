@@ -9,6 +9,11 @@ body {
     font-family: 'Hammersmith One', sans-serif;
     background-image: url("/imgs/fondo.jpg");
     background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+
 }
 
     /* HEADER */
@@ -70,4 +75,8 @@ header{
 a{
     text-decoration: none;
     color: inherit;
+}
+
+.prueba{
+    height:1000px;
 }
