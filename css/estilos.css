@@ -1,6 +1,14 @@
+/*color palette:
+red: #e32f30
+orange: #f0a935
+gray: #6c6c6c
+ */
+
+
 body {
     font-family: 'Hammersmith One', sans-serif;
-    background-image: url("/imgs/genshin-impact-recuerdos-chongyun-final-no-hay-mal-que-por-bien-no-venga.jpg");
+    background-image: url("/imgs/fondo.jpg");
+    background-size: cover;
 }
 
     /* HEADER */
@@ -19,17 +27,19 @@ header{
     transition: 0.5s;
 }
 
-.logo{
+.logo {
     height: 60%;
+    transition: 0.5s;
 }
+
 
 .header-item{
     margin: 0 1rem;
-    font-weight: 600;
+    font-weight: 400;
     cursor: pointer;
     transition: 0.5s;
-    color: #571a1a;
-    text-decoration: none;
+    color: white;
+    letter-spacing: 1px;
 }
 
 .menu{
@@ -42,27 +52,22 @@ header{
 .login{
     padding: 10px 24px;
     border-radius: 30px;
-    background-color: grey;
-    font-weight: 600;
+    background-color: #f0a935;
+    font-weight: 400;
     cursor: pointer;
     transition: 0.5s;
-    text-decoration: none;
 }
 
 .login:hover{
-    text-decoration: none;
-    color: aquamarine;
-    background-color: brown;
+    color: white;
+    background-color: #e32f30;
 }
 
 .header-item:hover{
-    text-decoration: none;
-    color: cornflowerblue;
-}
-
-.prueba{
+    color: #f0a935;
 }
 
 a{
     text-decoration: none;
+    color: inherit;
 }
