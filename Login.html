@@ -17,20 +17,20 @@
             <li class="header-item"><a href="Index.html">inicio</a></li>
             <li class="header-item"><a href="Cartelera.html">cartelera</a></li>
             <li class="header-item"> <a href="Estrenos.html">estrenos</a></li>
-            <li class="login"><a href="Login.html">login</a></li>
+            <a href="Login.html"><li class="login" id="logger">login</li></a>
         </ul>
     </header>
 
 
     <div class="centro">
         <h1>Login</h1>
-        <form id="task-form">
+        <form id="login">
             <div class="texto">
                 <label for="username">Nombre de Usuario</label>
                 <input type="text" placeholder="Nombre de Usuario" id="username">
             </div>
             <div class="texto">
-                <input type="password" required>
+                <input type="password" required id="password">
                 <label>Contraseña</label>
             </div>
             <input type="submit" value="Login">
@@ -40,7 +40,6 @@
         </form>
     </div>
 
-    <script type="text/javascript" src="js/js_general.js"></script>
     <script type="module" src="js/login.js"></script>
 </body>
 </html>

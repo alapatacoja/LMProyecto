@@ -1,18 +1,19 @@
+import {
+  login,
+} from "./js_general.js"
 
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+const loginForm = document.getElementById("login");
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyCBXTTknGr0bzDOwMZpjawbyDlxNrj7tig",
-    authDomain: "proyecto-final-lm.firebaseapp.com",
-    projectId: "proyecto-final-lm",
-    storageBucket: "proyecto-final-lm.appspot.com",
-    messagingSenderId: "805432992319",
-    appId: "1:805432992319:web:4f69bb31378dfae6e60e8a"
-  };
+loginForm.addEventListener("submit",async (e) => {
+  e.preventDefault();
+  const userName = loginForm["username"];
+  const pswd = loginForm["password"];
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
+
+  try{
+      console.log("Username "+userName.value+" Password: "+pswd.value);
+      await login(userName.value,pswd.value);
+  }catch (eror){
+      console.log(error);
+  }
+});
