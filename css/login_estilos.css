@@ -73,23 +73,23 @@ input[type="radio"]{
     display: none;
 }
 
-#signup:checked ~ .slider-tab{
+#sign_upRadio:checked ~ .slider-tab{
     left: 50%;
 }
 
-#signup:checked ~ label.signup{
+#sign_upRadio:checked ~ label.sign_upRadio{
     color: white;
 }
 
-#signup:checked ~ label.login{
+#sign_upRadio:checked ~ label.login_radio{
     color: black;
 }
 
-#login:checked ~label.signup{
+#login_radio:checked ~label.sign_upRadio{
     color: black;
 }
 
-#login:checked ~label.login{
+#login_radio:checked ~label.login_radio{
     color: white;
 }
 
