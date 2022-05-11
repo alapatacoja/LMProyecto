@@ -11,8 +11,6 @@ body {
     background-size: cover;
     margin: 0;
     padding: 0;
-    height: 100vh;
-    overflow: hidden;
 
 }
 
@@ -32,7 +30,7 @@ header{
     transition: 0.5s;
 }
 
-.logo {
+.logo{
     height: 60%;
     transition: 0.5s;
 }
@@ -54,7 +52,7 @@ header{
     list-style: none;
 }
 
-.login{
+.login-header{
     padding: 10px 24px;
     border-radius: 30px;
     background-color: #f0a935;
@@ -63,7 +61,7 @@ header{
     transition: 0.5s;
 }
 
-.login:hover{
+.login-header:hover{
     color: white;
     background-color: #e32f30;
 }

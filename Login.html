@@ -17,29 +17,91 @@
             <li class="header-item"><a href="Index.html">inicio</a></li>
             <li class="header-item"><a href="Cartelera.html">cartelera</a></li>
             <li class="header-item"> <a href="Estrenos.html">estrenos</a></li>
-            <a href="Login.html"><li class="login" id="logger">login</li></a>
+            <li class="login-header"><a href="Login.html">login</a></li>
         </ul>
     </header>
 
 
-    <div class="centro">
-        <h1>Login</h1>
-        <form id="login">
-            <div class="texto">
-                <label for="username">Nombre de Usuario</label>
-                <input type="text" placeholder="Nombre de Usuario" id="username">
+    <div class="wrapper">
+        <div class="titulo">
+            <div class="login-titulo">
+                Login
             </div>
-            <div class="texto">
-                <input type="password" required id="password">
-                <label>Contraseña</label>
+            <div class="registro-titilo">
+                Registrarse
             </div>
-            <input type="submit" value="Login">
-            <div class="link">
-                No tienes cuenta? <a href="CrearCuenta.html">Crea una!</a>
+        </div>
+        <div class="form-container">
+            <div class="sliderform">
+                <input type="radio" name="slide" id="login" checked>
+                <input type="radio" name="slide" id="signup">
+                <label for="login" class="slide login">Login</label>
+                <label for="signup" class="slide signup">Registrate</label>
+                <div class="slider-tab"></div>
             </div>
-        </form>
+            <div class="dentro-form">
+                <!--LOGIN-------------------------------------------->
+                <form class="login">
+                    <div class="texto">
+                        <input type="text" placeholder="Nombre de Usuario" id="username" required>
+                    </div>
+                    <div class="texto">
+                        <input type="password" required id="password" placeholder="Contraseña">
+                    </div>
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Login">
+                    </div>
+                    <div class="link">
+                        No tienes cuenta? <a href="">Crea una!</a>
+                    </div>
+                </form>
+                <!--REGISTRO-------------------------------------------->
+                <form class="signup">
+                    <div class="texto">
+                        <input type="text" placeholder="Nombre de Usuario" required id="usernameRegistro">
+                    </div>
+                    <div class="texto">
+                        <input type="password" required placeholder="Contraseña" id="passwordRegistro">
+                    </div>
+                    <div class="texto">
+                        <input type="password" required placeholder="Confirmar Contraseña" id="confirmPasswordRegistro">
+                    </div>
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                            <input type="submit" value="Registrarse">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
+    <script type="text/javascript" src="js/js_general.js"></script>
     <script type="module" src="js/login.js"></script>
+    <script src="js/sign_up.js" type="text/javascript"></script>
+
+    <script>
+        const loginText = document.querySelector(".login-titulo");
+        const loginForm = document.querySelector("form.login");
+        const loginboton = document.querySelector("label.login");
+        const signupboton = document.querySelector("label.signup");
+        const linkregistro = document.querySelector("form.link a");
+
+        signupboton.onclick = (()=>{
+            loginForm.style.marginLeft = "-50%";
+            loginText.style.marginLeft = "-50%";
+        });
+
+        loginboton.onclick = (()=>{
+            loginForm.style.marginLeft = "0%";
+            loginText.style.marginLeft = "0%";
+        });
+
+        linkregistro.onclick = (()=>{
+            signupboton.onclick();
+            return false;
+        });
+    </script>
+
 </body>
 </html>
