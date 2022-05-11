@@ -65,7 +65,7 @@ html, body{
     left: 0;
     z-index: 0;
     border-radius: 5px;
-    background: -webkit-linear-gradient(right, #e32f30, #f0a935);
+    background: -webkit-linear-gradient(left, #E32F30, #F0A935);
     transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -75,21 +75,22 @@ input[type="radio"]{
 
 #sign_upRadio:checked ~ .slider-tab{
     left: 50%;
+    background: -webkit-linear-gradient(right, #E32F30, #F0A935);
 }
 
-#sign_upRadio:checked ~ label.sign_upRadio{
+#sign_upRadio:checked ~ label.signup{
     color: white;
 }
 
-#sign_upRadio:checked ~ label.login_radio{
+#sign_upRadio:checked ~ label.login{
     color: black;
 }
 
-#login_radio:checked ~label.sign_upRadio{
+#login_radio:checked ~label.signup{
     color: black;
 }
 
-#login_radio:checked ~label.login_radio{
+#login_radio:checked ~label.login{
     color: white;
 }
 
@@ -149,21 +150,45 @@ input[type="radio"]{
 }
 
 .boton{
+    margin-top: 30px;
     height: 50px;
     width: 100%;
     border-radius: 5px;
     position: relative;
     overflow: hidden;
+    transition: all 0.6s ease;
 }
 
 .boton .boton-layer{
     height: 100%;
-    width: 300%;
+    width: 100%;
     position: absolute;
     left: -100;
-    background: -webkit-linear-gradient(left, #e32f30, #f0a935);
+    background: -webkit-linear-gradient(top, #E32F30, #E75832);
     border-radius: 5px;
-    transition: all 0.4s ease;
+    transition: all 0.6s ease;
+}
+
+form .boton:hover .boton-layer{
+  left: 0;
+   background: -webkit-linear-gradient(top, #EC8033, #F0A935);
+   transition: all 0.6s ease;
+}
+
+form .boton input[type="submit"]{
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  background: none;
+  border: none;
+  color: #fff;
+  padding-left: 0;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.6s ease;
 }
 
 

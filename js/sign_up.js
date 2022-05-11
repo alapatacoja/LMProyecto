@@ -24,9 +24,9 @@ signForm.addEventListener("submit",async (e) => {
 
 const loginText = document.querySelector(".login-titulo");
 const loginForm = document.querySelector("form.login");
-const loginboton = document.querySelector("label.login_radio");
-const signupboton = document.querySelector("label.sign_upRadio");
-const linkregistro = document.querySelector("form .link a");
+const loginboton = document.querySelector("#login_radio");
+const signupboton = document.querySelector("#sign_upRadio");
+const linkregistro = document.querySelector(".link a");
 
         signupboton.onclick = (()=>{
             loginForm.style.marginLeft = "-50%";
@@ -39,6 +39,7 @@ const linkregistro = document.querySelector("form .link a");
         });
 
         linkregistro.onclick = (()=>{
-            signupboton.onclick();
+            loginForm.style.marginLeft = "-50%";
+            loginText.style.marginLeft = "-50%";
             return false;
         });
