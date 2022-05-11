@@ -21,6 +21,11 @@ html, body{
     box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
 }
 
+.titulos{
+    display: flex;
+    width: 200%;
+}
+
 .titulo{
     width: 50%;
     font-size: 35px;
@@ -102,54 +107,64 @@ input[type="radio"]{
     transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.centro{
-    max-width: 390px;
-    background: white;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
-    margin-top: 30%;
-}
-
-.centro .titulo{
-    display: flex;
-    width:50%;
-    font-size: 35px;
-    font-weight: 600;
-    text-align: center;
-}
-
-
-.dentro-form form .texto{
+.texto{
     height: 50px;
     width: 100%;
     margin-top: 20px;
 }
 
-.dentro-form form .texto input{
+.texto input{
     height: 100%;
     width: 100%;
     outline: none;
     padding-left: 15px;
-    font-size: 17px;
-    border: 0px solid lightgrey;
+    border-radius: 5px;
+    border: 1px solid lightgray;
     border-bottom-width: 2px;
+    font-size: 18px;
+    transition: all 0.3s ease;
 }
 
-input[type="submit"]{
-    background: #f0a935;
-    color: white;
-    font-size: 20px;
-    font-weight: 500;
-    width: 100%;
+ .texto input:focus{
+    border-color: #f0a935;
+}
+
+.texto input:focus::placeholder{
+    color: lightgrey;
+    transition: all 0.3s ease;
+}
+
+.dentro-form form .link{
+    text-align: center;
     margin-top: 30px;
-    border: 0px;
-    padding: 5px;
-    border-radius: 100px;
-
 }
 
+.link a{
+    text-decoration: none;
+    color: #f0a935;
+}
 
+.link a:hover{
+    border-bottom: 1px solid;
+}
+
+.boton{
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.boton .boton-layer{
+    height: 100%;
+    width: 300%;
+    position: absolute;
+    left: -100;
+    background: -webkit-linear-gradient(left, #e32f30, #f0a935);
+    border-radius: 5px;
+    transition: all 0.4s ease;
+}
 
 
 

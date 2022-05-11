@@ -3,6 +3,7 @@ import {
 } from "./js_general.js"
 
 const loginForm = document.getElementById("login");
+console.log(loginForm);
 
 loginForm.addEventListener("submit",async (e) => {
   e.preventDefault();
