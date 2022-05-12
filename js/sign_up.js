@@ -27,6 +27,7 @@ const loginForm = document.querySelector("form.login");
 const loginboton = document.querySelector("#login_radio");
 const signupboton = document.querySelector("#sign_upRadio");
 const linkregistro = document.querySelector(".link a");
+console.log(linkregistro);
 
         signupboton.onclick = (()=>{
             loginForm.style.marginLeft = "-50%";

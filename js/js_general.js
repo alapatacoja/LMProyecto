@@ -1,4 +1,4 @@
-  // Import the functions you need from the SDKs you need
+// Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -34,30 +34,6 @@
 
   var user = null;
 
-  let header = document.getElementById("header");
-
-
-let logo = document.getElementById("logo");
-
-window.addEventListener('scroll', ()=>{
-    let scroll = window.scrollY;
-    if (scroll>10)
-        header.style.background='#292929'
-    else
-        header.style.background = 'transparent'
-})
-
-function hover(logo) {
-    logo.style.transitionDuration = "0.5s";
-    logo.setAttribute('src', "/imgs/EMOCINES.png");
-
-}
-
-function unhover(logo) {
-    logo.style.transitionDuration = "0.5s";
-    logo.setAttribute('src', "/imgs/ELMOCINES.png");
-
-}
 
 export const register = (userName, password) =>{
     console.log(db);
@@ -77,7 +53,7 @@ export const login = async (userName,password) => {
         console.log(user);
         const li = document.getElementById("logger");
         li.innerHTML = user.userName;
-        sessionStorage.setItem('userName',user.userName);
+        getAuth
     });
 
 }

@@ -11,7 +11,6 @@ body {
     background-size: cover;
     margin: 0;
     padding: 0;
-
 }
 
     /* HEADER */
@@ -32,17 +31,24 @@ header{
 
 .logo{
     height: 60%;
-    transition: 0.5s;
+    transition: all 1s ease;
+}
+
+.logo:hover{
+   -webkit-transition: all .3s ease;
+   -moz-transition: all .3s ease;
+   transition: all .3s ease;
+    cursor:pointer;
 }
 
 
-.header-item{
+.item{
     margin: 0 1rem;
     font-weight: 400;
     cursor: pointer;
-    transition: 0.5s;
     color: white;
     letter-spacing: 1px;
+        transition: 0.5s;
 }
 
 .menu{
@@ -66,7 +72,7 @@ header{
     background-color: #e32f30;
 }
 
-.header-item:hover{
+.item:hover{
     color: #f0a935;
 }
 
@@ -76,5 +82,5 @@ a{
 }
 
 .prueba{
-    height:1000px;
+    height:2000px;
 }

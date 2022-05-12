@@ -1,3 +1,16 @@
+/*
+#E32F30
+
+#E75832
+
+#EC8033
+
+#F0A935
+
+
+*/
+
+
 *{
 font-family: 'Hammersmith One', sans-serif;
     box-sizing: border-box;
@@ -65,7 +78,7 @@ html, body{
     left: 0;
     z-index: 0;
     border-radius: 5px;
-    background: -webkit-linear-gradient(left, #E32F30, #F0A935);
+    background: -webkit-linear-gradient(left, #E32F30, #E75832);
     transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -75,7 +88,7 @@ input[type="radio"]{
 
 #sign_upRadio:checked ~ .slider-tab{
     left: 50%;
-    background: -webkit-linear-gradient(right, #E32F30, #F0A935);
+    background: -webkit-linear-gradient(right, #E32F30, #E75832);
 }
 
 #sign_upRadio:checked ~ label.signup{
