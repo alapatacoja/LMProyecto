@@ -30,20 +30,18 @@ header{
 }
 
 .logo{
-    height: 60%;
+    height: 86%;
+    margin-top: .8%;
     transition: all 1s ease;
 }
 
 .logo:hover{
-   -webkit-transition: all .3s ease;
-   -moz-transition: all .3s ease;
-   transition: all .3s ease;
     cursor:pointer;
 }
 
 
 .item{
-    margin: 0 1rem;
+    margin: 2rem;
     font-weight: 400;
     cursor: pointer;
     color: white;
