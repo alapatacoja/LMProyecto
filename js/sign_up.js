@@ -22,11 +22,12 @@ signForm.addEventListener("submit",async (e) => {
 
 //login slider uwu
 
-const loginText = document.querySelector(".login-titulo");
+const loginText = document.querySelector(".titulo-texto .login");
 const loginForm = document.querySelector("form.login");
 const loginboton = document.querySelector("#login_radio");
 const signupboton = document.querySelector("#sign_upRadio");
-const linkregistro = document.querySelector(".link a");
+const linkregistro = document.getElementById('enlace');
+
 console.log(linkregistro);
 
         signupboton.onclick = (()=>{
@@ -40,7 +41,7 @@ console.log(linkregistro);
         });
 
         linkregistro.onclick = (()=>{
-            loginForm.style.marginLeft = "-50%";
-            loginText.style.marginLeft = "-50%";
+            signupboton.onclick();
+            signupboton.checked = true;
             return false;
         });

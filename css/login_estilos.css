@@ -34,12 +34,12 @@ html, body{
     box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
 }
 
-.titulos{
+.wrapper .titulo-texto{
     display: flex;
     width: 200%;
 }
 
-.titulo{
+.wrapper .titulo-texto .titulo{
     width: 50%;
     font-size: 35px;
     font-weight: 600;
