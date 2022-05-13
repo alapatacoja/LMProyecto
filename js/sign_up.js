@@ -2,22 +2,67 @@ import {
     register,
 } from "./js_general.js"
 
-const signForm = document.getElementById("signup");
+const signForm = document.getElementById("signupForm");
 
 signForm.addEventListener("submit",async (e) => {
     e.preventDefault();
-    const userName = signForm["username"];
-    const pswd = signForm["password"];
+    const email = signForm["emailRegistro"];
+    const pswd = signForm["passwordRegistro"];
+    const pswdConfirm = signForm["confirmPasswordRegistro"];
+    const message = document.getElementById("passwordErronea");
 
 
     try{
-        console.log("Username "+userName.value+" Password: "+pswd.value);
-        await register(userName.value,pswd.value);
+
+        let psString = pswd.value;
+        let psConfirmString = pswdConfirm.value;
+        let contMinus = hasLowerCase(psString);
+        let contMayus = hasUpperCase(psString);
+
+        if (!contMinus){
+            message.innerText = "El email no contiene ninguna minuscula";
+        }
+        else if(!contMayus){
+            message.innerText = "El email no contiene ninguna mayuscula";
+        }
+        else if(psString !== psConfirmString){
+            message.innerText = "Ambas contraseñas no son iguales";
+        }
+        /**
+        else if(psString.length < 8){
+            message.innerText = "La contraseña debe tener como mínimo 8 caracteres";
+        }
+        */
+        else{
+            console.log("email:  "+email.value+" Password: "+psString);
+            await register(email.value,pswd.value);
+        }
     }catch (eror){
         console.log(error);
     }
 });
 
+    function hasUpperCase(str){
+        let contMinus = false;
+        for (let i = "A".charCodeAt(0); i <= "Z".charCodeAt(0) && contMinus == false; i++){
+            let charac = String.fromCharCode(i);
+            if (str.includes(charac)){
+                contMinus = true;
+            }
+        }
+        return contMinus;
+    }
+
+    function hasLowerCase(str){
+        let contMinus = false;
+        for (let i = "a".charCodeAt(0); i <= "z".charCodeAt(0) && contMinus == false; i++){
+            let charac = String.fromCharCode(i);
+            if (str.includes(charac)){
+                contMinus = true;
+            }
+        }
+        return contMinus;
+    }
 
 
 //login slider uwu

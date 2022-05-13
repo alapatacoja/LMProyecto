@@ -40,12 +40,12 @@
             </div>
             <div class="dentro-form">
                 <!--LOGIN-------------------------------------------->
-                <form class="login" id="login">
+                <form class="login" id="loginForm">
                     <div class="texto">
-                        <input type="email" placeholder="Email" id="email" required>
+                        <input type="email" placeholder="Email" id="emailLogin" required>
                     </div>
                     <div class="texto">
-                        <input type="password" required id="password" placeholder="Contraseña">
+                        <input type="password" required id="passwordLogin" placeholder="Contraseña">
                     </div>
                     <div class="link">
                         No tienes cuenta? <a href="" id="enlace">Crea una!</a>
@@ -56,13 +56,14 @@
                     </div>
                 </form>
                 <!--REGISTRO-------------------------------------------->
-                <form class="signup" id="signup">
+                <form class="signup" id="signupForm">
                     <div class="texto">
                         <input type="email" required placeholder="Email" id="emailRegistro">
                     </div>
                     <div class="texto">
                         <input type="password" required placeholder="Contraseña" id="passwordRegistro">
                     </div>
+                    <p id="passwordErronea"></p>
                     <div class="texto">
                         <input type="password" required placeholder="Confirmar Contraseña" id="confirmPasswordRegistro">
                     </div>

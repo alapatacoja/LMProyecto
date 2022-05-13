@@ -17,6 +17,8 @@
     updateDoc,
   } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
 
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from 'https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js';;
+
   // Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyCBXTTknGr0bzDOwMZpjawbyDlxNrj7tig",
@@ -35,15 +37,35 @@
   var user = null;
 
 
-export const register = (userName, password) =>{
-    console.log(db);
-    addDoc(collection(db,"users"), { userName, password});
+export const register = async (email, password) =>{
+    const role = "client";
+    const usersRef = collection(db,"users");
+
+    const q1 = query(usersRef, where("email", "==", email));
+
+    const querySnapshot = await getDocs(q1);
+
+    if(querySnapshot.size == 0) {
+
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        addDoc(collection(db,"users"), {email, password, role});
+        // ...
+    })
+    }
+
+    else{
+        console.log("Este usuario ya existe");
+    }
 }
 
-export const login = async (userName,password) => {
+export const login = async (email,password) => {
     const citiesRef = collection(db,"users");
 
-    const q1 = query(citiesRef, where("userName", "==", userName), where("password", "==", password));
+    const q1 = query(citiesRef, where("email", "==", email), where("password", "==", password));
 
     const querySnapshot = await getDocs(q1);
     
@@ -53,7 +75,20 @@ export const login = async (userName,password) => {
         console.log(user);
         const li = document.getElementById("logger");
         li.innerHTML = user.userName;
-        getAuth
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            console.log("HOLA BUENOS DIAS")
+            window.location.replace("Cartelera.html");
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        });
+
     });
 
 }
