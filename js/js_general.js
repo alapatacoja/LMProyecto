@@ -53,6 +53,7 @@ export const register = async (email, password) =>{
         // Signed in
         const user = userCredential.user;
         addDoc(collection(db,"users"), {email, password, role});
+        window.location.replace("Cartelera.html");
         // ...
     })
     }
@@ -80,7 +81,6 @@ export const login = async (email,password) => {
         .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            console.log("HOLA BUENOS DIAS")
             window.location.replace("Cartelera.html");
             // ...
         })
