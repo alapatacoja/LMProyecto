@@ -28,11 +28,9 @@ signForm.addEventListener("submit",async (e) => {
         else if(psString !== psConfirmString){
             message.innerText = "Ambas contraseñas no son iguales";
         }
-        /**
         else if(psString.length < 8){
             message.innerText = "La contraseña debe tener como mínimo 8 caracteres";
         }
-        */
         else{
             console.log("email:  "+email.value+" Password: "+psString);
             await register(email.value,pswd.value);
