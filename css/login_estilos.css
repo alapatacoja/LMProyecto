@@ -26,6 +26,7 @@ html, body{
 }
 
 .wrapper{
+    margin-top:5%;
     overflow: hidden;
     max-width: 390px;
     background: white;
