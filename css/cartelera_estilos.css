@@ -23,11 +23,13 @@
 .fondo .cuadro{
     width: 90%;
     margin-left: 5%;
-    background: #E32F30;
+    background: white;
     margin-top: 2%;
     padding: 15px;
     display: flex;
     box-shadow: -5px 5px 10px 0px #bfbfbf;
+    border: 1px solid lightgrey;
+
 }
 
 .fondo .cuadro .imgPeli img{
@@ -39,22 +41,24 @@
 }
 
 .botonreserva{
+    margin-top: 5%;
     display: flex;
     height: 50px;
     padding: 0;
-    background: #EC8033;
+    background: #f0a935;
     border: none;
     outline: none;
     border-radius: 5px;
     overflow: hidden;
     font-weight: 300;
     transition: all .5s ease;
-    bottom: 0;
     float: right;
+
 }
 
 .botonreserva:hover{
-    background: #E32F30;
+    background: #EC8033;
+    cursor: pointer;
 }
 
 .textobtn, .iconitobtn{
@@ -67,3 +71,12 @@
     font-size: 20px;
 }
 
+.space{
+    height:70%;
+}
+
+.botonydiv{
+    display: block;
+    clear: both;
+    width: 600px;
+}
