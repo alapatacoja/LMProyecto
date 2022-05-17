@@ -2,13 +2,6 @@
     font-family: 'Hammersmith One', sans-serif;
 }
 
-.body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
 .fondo{
     margin-left: 5%;
     width: 90%;
@@ -18,6 +11,8 @@
     align-items: center;
     flex-wrap: wrap;
     background: white;
+    margin-bottom: 5%;
+    padding-bottom: 50px;
 }
 
 .fondo .cuadro{
@@ -29,7 +24,6 @@
     display: flex;
     box-shadow: -5px 5px 10px 0px #bfbfbf;
     border: 1px solid lightgrey;
-
 }
 
 .fondo .cuadro .imgPeli img{
