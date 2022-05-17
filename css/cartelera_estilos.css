@@ -28,6 +28,7 @@
 
 .fondo .cuadro .imgPeli img{
     width: 150px;
+    border: 2px solid grey;
 }
 
 .fondo .cuadro .contentPeli{
