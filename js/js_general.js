@@ -36,6 +36,16 @@
 
   var user = null;
 
+  export const getMovies = async () =>{
+    const moviesRef = collection(db,"boardMovies");
+
+    const q1 = query(moviesRef);
+
+    const querySnapshot = await getDocs(q1);
+
+    return querySnapshot;
+  }
+
 
 export const register = async (email, password) =>{
     const role = "client";
