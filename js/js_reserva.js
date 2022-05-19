@@ -10,3 +10,9 @@ mapa.addEventListener('click', (e) => {
   }
 });
 
+function updateSelectedCount(){
+  const asientosSeleccionados = document.querySelectorAll('.fila .asiento.seleccionado');
+
+  console.log(asientosSeleccionados);
+}
+
