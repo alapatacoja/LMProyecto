@@ -2,19 +2,6 @@
     font-family: 'Hammersmith One', sans-serif;
 }
 
-.fondo{
-    margin-left: 5%;
-    width: 90%;
-    margin-top: 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    background: white;
-    margin-bottom: 5%;
-    padding-bottom: 50px;
-}
-
 .fondo .cuadro{
     width: 90%;
     margin-left: 5%;
