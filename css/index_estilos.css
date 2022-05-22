@@ -1,0 +1,77 @@
+.caja{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+.sliderheader{
+    overflow: hidden;
+    width: 100%;
+    height: 400px;
+}
+
+.slidesheader{
+    width: 500%;
+    height: 400px;
+    display: flex;
+}
+
+.slidesheader input{
+    display: none;
+}
+
+.slide{
+    width: 20%;
+    transition: 2s;
+}
+
+.slide img{
+    width: 100%;
+    height: 400px;
+}
+
+.botoncitos{
+    position: absolute;
+    width: 90%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.manualbtn{
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.manualbtn:not(:last-child){
+    margin-right: 20px;
+}
+
+.manualbtn:hover{
+    background: #F0A935;
+}
+
+#radio1:checked ~ .uno{
+    margin-left: 0;
+}
+
+
+#radio2:checked ~ .uno{
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .uno{
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .uno{
+    margin-left: -60%;
+}

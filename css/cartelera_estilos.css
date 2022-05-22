@@ -18,8 +18,14 @@
     border: 2px solid grey;
 }
 
+.fondo .cuadro .imgPeliEstrenos img{
+    border: 2px solid grey;
+    height: 315px;
+}
+
 .fondo .cuadro .contentPeli{
     margin-left: 3%;
+    margin-right: 3%;
 }
 
 .botonreserva{
