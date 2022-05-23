@@ -45,7 +45,7 @@ html, body{
     font-size: 35px;
     font-weight: 600;
     text-align: center;
-    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 0.6s cubic-bezier(.71,-0.27,.26,1.19);
 }
 
 .sliderform{
@@ -80,6 +80,7 @@ html, body{
     z-index: 0;
     border-radius: 5px;
     background: -webkit-linear-gradient(left, #E32F30, #E75832);
+    /*estos son los numero buenos uwu */
     transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -119,7 +120,7 @@ input[type="radio"]{
 
 .form-container .dentro-form form{
     width: 50%;
-    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 0.6s cubic-bezier(.77,-0.21,.3,1.17);
 }
 
 .texto{

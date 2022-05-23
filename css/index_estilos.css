@@ -11,12 +11,12 @@
 .sliderheader{
     overflow: hidden;
     width: 100%;
-    height: 400px;
+    height: 500px;
 }
 
 .slidesheader{
     width: 500%;
-    height: 400px;
+    height: 500px;
     display: flex;
 }
 
@@ -31,7 +31,7 @@
 
 .slide img{
     width: 100%;
-    height: 400px;
+    height: 100%;
 }
 
 .botoncitos{
@@ -49,6 +49,7 @@
     border-radius: 10px;
     cursor: pointer;
     transition: .5s;
+
 }
 
 .manualbtn:not(:last-child){
@@ -74,4 +75,43 @@
 
 #radio4:checked ~ .uno{
     margin-left: -60%;
+}
+
+.autoheader{
+    position: absolute;
+    width: 90%;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.autoheader div{
+        border: 1px solid green;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: .5s;
+}
+
+.autoheader div:not(:last-child){
+    margin-right: 20px;
+}
+
+#radio1:checked ~ .manualbtn{
+    background-color: #F0A935;
+    color: #F0A935;
+    border: 2px solid red;
+}
+
+
+#radio2:checked ~ .autobtn2{
+    background: #F0A935;
+}
+
+#radio3:checked ~ .autobtn3{
+    background: #F0A935;
+}
+
+#radio4:checked ~ .autobtn4{
+    background: #F0A935;
 }
