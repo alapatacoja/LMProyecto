@@ -3,10 +3,12 @@ import {
     getMovies,
   } from "./js_general.js"
 
+var peliculas = document.querySelectorAll(".cuadro");
+var botones = document.querySelectorAll(".botonreserva");
+
 window.addEventListener ('DOMContentLoaded', async (event)  => {
     const moviesList = await getMovies();
 
-    console.log(moviesList.size);
 
     moviesList.forEach((doc) => {
         console.log(doc);
@@ -14,6 +16,9 @@ window.addEventListener ('DOMContentLoaded', async (event)  => {
         getCuadro(movie);
 
     });
+
+    peliculas = document.querySelectorAll(".cuadro");
+    botones = document.querySelectorAll(".botonreserva");
 });
 
 function getCuadro(movie){

@@ -103,3 +103,27 @@ export const login = async (email,password) => {
 
 }
 
+export const getReserva = async (titulo,dia,hora) => {
+  const ticketsRef = collection(db,"tickets");
+
+    const q1 = query(ticketsRef, where("titulo", "==", titulo), 
+        where("dia", "==", dia), where("hora", "==", hora));
+
+    const querySnapshot = await getDocs(q1);
+
+    return querySnapshot;
+}
+
+
+export const addReserva = async (titulo,dia,hora,asientos) => {
+
+    //const q1 = query(ticketsRef, where("titulo", "==", titulo), 
+    //    where("dia", "==", dia), where("hora", "==", hora));
+
+    //const querySnapshot = await getDocs(q1);
+
+
+    addDoc(collection(db,"tickets"), {titulo, dia, hora, asientos});
+    
+}
+
