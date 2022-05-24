@@ -16,7 +16,7 @@
 
 .slidesheader{
     width: 500%;
-    height: 500px;
+    height: 450px;
     display: flex;
 }
 
@@ -117,7 +117,7 @@
 }
 
 h1{
-    margin-top: 5%;
+    margin-top: 4%;
     margin-bottom: -1%;
     background-color: #f0a935;
     padding: 10px 2% 5px 5%;
