@@ -115,3 +115,10 @@
 #radio4:checked ~ .autobtn4{
     background: #F0A935;
 }
+
+h1{
+    margin-top: 5%;
+    margin-bottom: -1%;
+    background-color: #f0a935;
+    padding: 10px 2% 5px 5%;
+}
