@@ -1,7 +1,12 @@
-import { addReserva, getReserva } from "./js_general.js";
-// import { jsPDF } from "jspdf";
+import { addReserva, getReserva,getReservedMovie } from "./js_general.js";
+//import { jsPDF } from "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js";
+
 
 var asientosSeleccionados = [];
+var asientosOcupados = new Set();
+
+var today;
+var reservedDate;
 const asientos = document.querySelectorAll('.fila .asiento:not(.reservado');
 const mapa = document.querySelector('.mapa');
 
@@ -9,7 +14,34 @@ const botonConfirmar = document.getElementById('botonConfirmar');
 
 
 window.addEventListener ('DOMContentLoaded', async (event)  => {
-  const bookings = await getReserva("Peli1","hoy","ahora");
+
+  today = new Date();
+  let nowdate = getStrDate(today);
+    let marcoFecha = document.getElementById('marcoFecha');
+    
+  marcoFecha.innerHTML += `
+        <label for="resDate">Fecha de la Reserva:</label>
+        <input type="date" id="resDate" min="${nowdate}">
+    `
+
+  let reservedDateDocument = document.getElementById('resDate');
+  reservedDate = today;
+  reservedDateDocument.value = nowdate;
+
+  reservedDateDocument.addEventListener('change', (selectedDate) => {
+    reservedDate = getDate(selectedDate.target.value);
+    if(reservedDate < today){
+      alert('fecha no valida');
+      console.log(reservedDateDocument);
+      reservedDateDocument.value = nowdate;
+      reservedDate = today;
+    }
+
+
+  });
+
+  let reservedMovie = sessionStorage.getItem('movieTitle');
+  const bookings = await getReserva(reservedMovie,getStrDate(reservedDate),"ahora");
 
   bookings.forEach((doc) => {
       let booking = doc.data();
@@ -17,16 +49,31 @@ window.addEventListener ('DOMContentLoaded', async (event)  => {
       asientos.forEach((asiento) => {
         let letra = asiento.letra;
         let numero = asiento.num;
-        let divAsiento = document.getElementsByClassName(letra+' '+numero).item(0);
-        divAsiento.classList.toggle('reservado');
+        let asient = {
+          letra: asiento.letra,
+          numero: asiento.num
+        };
+
+        addAsientoOcupado(asient);
+        
       });
 
   });
+
+  asientosOcupados.forEach((asiento1) => {
+    let divAsiento = document.getElementsByClassName(asiento1.letra+' '+asiento1.numero).item(0);
+        divAsiento.classList.toggle('reservado');
+  });
+
+  
+
 });
 
-botonConfirmar.addEventListener('click', (confirmar) => {
+botonConfirmar.addEventListener('click', async (confirmar) => {
+  let reservedMovie = sessionStorage.getItem('movieTitle');
   if (asientos.length > 0){
-    addReserva("Peli1","hoy","ahora",asientosSeleccionados);
+    await addReserva(reservedMovie,getStrDate(reservedDate),"ahora",asientosSeleccionados);
+    
   }
 
 });
@@ -72,5 +119,42 @@ function updateSelectedCount(){
   });
 
   console.log(asientosSeleccionados);
+}
+
+function addAsientoOcupado(asiento){
+  let found = false;
+  asientosOcupados.forEach((as) =>{
+    if(as.letra == asiento.letra && as.numero == asiento.numero){
+      found = true;
+    }
+  });
+
+  if(found == false){
+    asientosOcupados.add(asiento);
+  }
+}
+
+function getDate(strDate){
+  let auxDate = new Date();
+  let arrayString = strDate.split('-');
+  auxDate.setFullYear(arrayString[0]);
+  auxDate.setMonth(arrayString[1]-1);
+  auxDate.setDate(arrayString[2]);
+
+  return auxDate;
+}
+
+function getStrDate(dateDate){
+  let year = dateDate.getFullYear();
+  let month = dateDate.getMonth()+1;
+  let day = dateDate.getDate();
+  if (day <= 9){
+    day = 0 +''+ day;
+  }
+  if (month <= 9){
+    month = 0 +''+ month;
+  }
+  let strdate = year+'-'+month+'-'+day;
+  return strdate;
 }
 

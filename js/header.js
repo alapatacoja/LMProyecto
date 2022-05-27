@@ -1,5 +1,19 @@
+import { getUser } from "./js_general.js";
+
 let header = document.getElementById("header");
 let logo = document.getElementById("logo");
+
+var logger = document.getElementById('logger');
+
+logger.addEventListener('click', async (e) =>{
+    let user = await getUser();
+    if(user !== null){
+        console.log(user);
+    }
+    else{
+        window.location.href ='Login.html' ;
+    }
+});
 
 
  window.addEventListener('scroll', ()=>{

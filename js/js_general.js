@@ -36,6 +36,8 @@
 
   var user = null;
 
+  var reservedMovie = null;
+
   export const getMovies = async () =>{
     const moviesRef = collection(db,"boardMovies");
 
@@ -44,6 +46,33 @@
     const querySnapshot = await getDocs(q1);
 
     return querySnapshot;
+  }
+
+  export const getMovie = async (titulo) =>{
+    const moviesRef = collection(db,"boardMovies");
+
+    const q1 = query(moviesRef, where("title", "==", titulo));
+
+    const querySnapshot = await getDocs(q1);
+
+    let movieData = null;
+    if(querySnapshot.size == 1){
+        querySnapshot.forEach((movie) =>{
+            movieData = movie.data();
+        });
+    }
+
+    reservedMovie = movieData;
+
+    sessionStorage.setItem('movieTitle',movieData.title);
+    sessionStorage.setItem('movieDescription',movieData.description);
+    sessionStorage.setItem('movieImg',movieData.imgurl);
+
+    return reservedMovie;
+  }
+
+  export const getReservedMovie = () => {
+      return reservedMovie;
   }
 
 
@@ -63,6 +92,7 @@ export const register = async (email, password) =>{
         // Signed in
         const user = userCredential.user;
         addDoc(collection(db,"users"), {email, password, role});
+        sessionStorage.setItem('role',role);
         window.location.replace("Cartelera.html");
         // ...
     })
@@ -86,6 +116,7 @@ export const login = async (email,password) => {
         console.log(user);
         const li = document.getElementById("logger");
         li.innerHTML = user.userName;
+        sessionStorage.setItem('role',user.role);
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -101,6 +132,12 @@ export const login = async (email,password) => {
 
     });
 
+}
+
+export const getUser = async () => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    return user;
 }
 
 export const getReserva = async (titulo,dia,hora) => {
@@ -123,7 +160,15 @@ export const addReserva = async (titulo,dia,hora,asientos) => {
     //const querySnapshot = await getDocs(q1);
 
 
-    addDoc(collection(db,"tickets"), {titulo, dia, hora, asientos});
+    addDoc(collection(db,"tickets"), {titulo, dia, hora, asientos}).then(function() {
+        sessionStorage.removeItem('movieTitle');
+        sessionStorage.removeItem('movieDescription');
+        sessionStorage.removeItem('movieImg');
+
+        window.location.href = "Index.html";
+    });
+
+    console.log('a');
     
 }
 
