@@ -8,7 +8,7 @@ var logger = document.getElementById('logger');
 logger.addEventListener('click', async (e) =>{
     let user = await getUser();
     if(user !== null){
-        console.log(user);
+        window.location.href ='ListaReservas.html' ;
     }
     else{
         window.location.href ='Login.html' ;

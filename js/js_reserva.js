@@ -1,4 +1,7 @@
-import { addReserva, getReserva,getReservedMovie } from "./js_general.js";
+import { addReserva, 
+  getReserva,
+  getUser,
+  getReservedMovie } from "./js_general.js";
 //import { jsPDF } from "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js";
 
 
@@ -37,7 +40,6 @@ window.addEventListener ('DOMContentLoaded', async (event)  => {
       reservedDate = today;
     }
 
-
   });
 
   let reservedMovie = sessionStorage.getItem('movieTitle');
@@ -72,8 +74,10 @@ window.addEventListener ('DOMContentLoaded', async (event)  => {
 botonConfirmar.addEventListener('click', async (confirmar) => {
   let reservedMovie = sessionStorage.getItem('movieTitle');
   if (asientos.length > 0){
-    await addReserva(reservedMovie,getStrDate(reservedDate),"ahora",asientosSeleccionados);
-    
+    let user = await getUser();
+    if (user !== null) {
+      await addReserva(reservedMovie,getStrDate(reservedDate),"ahora",asientosSeleccionados,user.email);
+    }
   }
 
 });
@@ -82,7 +86,12 @@ mapa.addEventListener('click', (e) => {
   if (e.target.classList.contains('asiento') && !e.target.classList.contains('reservado')) {
     e.target.classList.toggle('seleccionado');
 
-    updateSelectedCount();
+    if(asientosSeleccionados.length >= 2 && sessionStorage.getItem('role') == 'Empleado'){
+      alert('No se permiten más de dos asientos por empleado');
+    }
+    else{
+      updateSelectedCount();
+    }
   }
 });
 

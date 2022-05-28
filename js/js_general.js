@@ -17,7 +17,12 @@
     updateDoc,
   } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
 
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from 'https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js';;
+  import { getAuth, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+  } from 'https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js';;
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -37,6 +42,8 @@
   var user = null;
 
   var reservedMovie = null;
+
+  const auth = getAuth();
 
   export const getMovies = async () =>{
     const moviesRef = collection(db,"boardMovies");
@@ -86,7 +93,6 @@ export const register = async (email, password) =>{
 
     if(querySnapshot.size == 0) {
 
-        const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         // Signed in
@@ -103,6 +109,13 @@ export const register = async (email, password) =>{
     }
 }
 
+export const logout = async () => {
+    signOut(auth).then(() => {
+        window.location.href ="Index.html";
+      }).catch((error) => {
+        // An error happened.
+      });
+};
 export const login = async (email,password) => {
     const citiesRef = collection(db,"users");
 
@@ -115,14 +128,13 @@ export const login = async (email,password) => {
         user = doc.data();
         console.log(user);
         const li = document.getElementById("logger");
-        li.innerHTML = user.userName;
+        li.innerHTML = user.email;
         sessionStorage.setItem('role',user.role);
-        const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in
-            const user = userCredential.user;
-            window.location.replace("Cartelera.html");
+            const user1 = userCredential.user;
+            window.location.href ="Cartelera.html";
             // ...
         })
         .catch((error) => {
@@ -130,12 +142,12 @@ export const login = async (email,password) => {
             const errorMessage = error.message;
         });
 
+          
     });
 
 }
 
 export const getUser = async () => {
-    const auth = getAuth();
     const user = auth.currentUser;
     return user;
 }
@@ -152,15 +164,14 @@ export const getReserva = async (titulo,dia,hora) => {
 }
 
 
-export const addReserva = async (titulo,dia,hora,asientos) => {
+export const addReserva = async (titulo,dia,hora,asientos,user) => {
 
     //const q1 = query(ticketsRef, where("titulo", "==", titulo), 
     //    where("dia", "==", dia), where("hora", "==", hora));
 
     //const querySnapshot = await getDocs(q1);
 
-
-    addDoc(collection(db,"tickets"), {titulo, dia, hora, asientos}).then(function() {
+    addDoc(collection(db,"tickets"), {titulo, dia, hora, asientos,user}).then(function() {
         sessionStorage.removeItem('movieTitle');
         sessionStorage.removeItem('movieDescription');
         sessionStorage.removeItem('movieImg');
@@ -171,4 +182,28 @@ export const addReserva = async (titulo,dia,hora,asientos) => {
     console.log('a');
     
 }
+
+export const getReservasFromUser = async (user) =>{
+    const ticketsRef = collection(db,"tickets");
+    let email = user.email;
+
+    const q1 = query(ticketsRef, where("user", "==", email));
+
+    const querySnapshot = await getDocs(q1);
+
+    return querySnapshot;
+
+}
+
+onAuthStateChanged(auth, (userWithEmail) => {
+    if (userWithEmail) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = userWithEmail.uid;
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
 

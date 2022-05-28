@@ -1,7 +1,8 @@
 
 import {
     getMovies,
-    getMovie
+    getMovie,
+    getUser
   } from "./js_general.js"
   
 
@@ -29,7 +30,13 @@ window.addEventListener ('DOMContentLoaded', async (event)  => {
             let titulo = path[3].getElementsByClassName('title').item(0).textContent;
             const movie = await getMovie(titulo);
             console.log(movie);
-            window.location.href = "Reserva.html";
+            let user = await getUser();
+            if(user !== null){
+                window.location.href ='Reserva.html' ;
+            }
+            else{
+                window.location.href ='Login.html' ;
+            }
 
 
         })
