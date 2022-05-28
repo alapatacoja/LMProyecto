@@ -12,6 +12,8 @@ var today;
 var reservedDate;
 const asientos = document.querySelectorAll('.fila .asiento:not(.reservado)');
 const mapa = document.querySelector('.mapa');
+var imagen = document.getElementById('imagenreservas');
+var titulo = document.getElementById('tituloreservas');
 
 const precioBase = 7.20;
 var precioActual;
@@ -29,6 +31,7 @@ window.addEventListener ('DOMContentLoaded', async (event)  => {
   marcoFecha.innerHTML += `
         <label for="resDate">Fecha de la Reserva:</label>
         <input type="date" id="resDate" min="${nowdate}">
+        <p></p>
         <label for="precioTotal">Precio:</label>
         <h2 id="precioTotal"></h2>
     `
@@ -84,6 +87,7 @@ window.addEventListener ('DOMContentLoaded', async (event)  => {
   let reservedMovie = sessionStorage.getItem('movieTitle');
   const bookings = await getReserva(reservedMovie,getStrDate(reservedDate),"ahora");
 
+  titulo.innerHTML = reservedMovie;
   bookings.forEach((doc) => {
       let booking = doc.data();
       let asientos = booking.asientos;
@@ -109,18 +113,24 @@ window.addEventListener ('DOMContentLoaded', async (event)  => {
   
 
 });
-
+let imgMovie = sessionStorage.getItem('movieImg');
 botonConfirmar.addEventListener('click', async (confirmar) => {
   let reservedMovie = sessionStorage.getItem('movieTitle');
-  let imgMovie = sessionStorage.getItem('movieImg');
+  const element = document.getElementById("pdf");
+
   if (asientos.length > 0){
     let user = await getUser();
     if (user !== null) {
       await addReserva(reservedMovie,getStrDate(reservedDate),"ahora",asientosSeleccionados,user.email,precioActual,imgMovie);
+      html2pdf()
+          .from(element)
+          .save();
     }
+
   }
 
 });
+imagen.src = imgMovie;
 
 mapa.addEventListener('click', (e) => {
   if (e.target.classList.contains('asiento') && !e.target.classList.contains('reservado')) {
@@ -134,22 +144,6 @@ mapa.addEventListener('click', (e) => {
     }
   }
 });
-
-// function generarPDF(){
-//   /* variables input */
-//  // var titulo = ????;
-//   var inombre = document.getElementById('inombre').value;
-//   var iapellidos = document.getElementById('iapellidos').value;
-//   var iemail = document.getElementById('iemail').value;
-//
-//   var doc = new jsPDF();
-//
-//   doc.setFontSize(18);
-//   doc.text('nombre: '+inombre, 10, 20);
-//   doc.text('apellidos: '+iapellidos, 10, 20);
-//   doc.text('email: '+iemail, 10, 20);
-//
-// }
 
 function updateSelectedCount(){
   const arrayAsientosSeleccionados = document.querySelectorAll('.fila .asiento.seleccionado');
@@ -216,4 +210,5 @@ function getStrDate(dateDate){
   let strdate = year+'-'+month+'-'+day;
   return strdate;
 }
+
 

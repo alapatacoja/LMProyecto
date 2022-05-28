@@ -5,9 +5,12 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <link rel="stylesheet" type="text/css" href="css/reserva_estilos.css">
+<!--    <link rel="stylesheet" type="text/css" href="css/cartelera_estilos.css">-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
 <header id="header">
@@ -17,14 +20,12 @@
     <ul class="menu">
         <li class="1"> <a href="Index.html" class="item">inicio</a></li>
         <li class="2"> <a href="Cartelera.html" class="item">cartelera</a></li>
-        <li class="3"> <a href="Perfil.html" class="item">Perfil</a></li>
-        <li><a href="CrearEmpleados.html" class="item">Crear Empleados</a></li>
         <li class="login-header" id="logger">login</li>
     </ul>
 </header>
 
-    <div class="fondo">
-        <div class="mapa">
+    <div class="fondo" id="pdf">
+        <div class="mapa" >
             <div class="pantalla"></div>
             <div class="fila">
                 <p>A</p>
@@ -115,24 +116,32 @@
                 <p>8</p>
             </div>
         </div>
-        <div id="marcoFecha">
 
+    <div class="cuadro">
+        <div class="imgPeli">
+            <img id="imagenreservas"></img>
+            <button class="botonreserva" id="botonConfirmar" onclick="generatePDF()">
+                <span class="textobtn">Reservar</span>
+                <span class="iconitobtn">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+                </span>
+            </button>
+        </div>
+        <div class="contentPeli">
+            <h2 id="tituloreservas"></h2>
+            <div id="marcoFecha">
+
+            </div>
         </div>
 
-        <img id="imagenreservas">
-        <button id="botonConfirmar">
-            <span class="textobtn">Confirmar Reserva</span>
-            <span class="iconitobtn">
-            <ion-icon name="chevron-forward-outline">
-            </ion-icon>
-        </span>
-        </button>
+    </div>
     </div>
 
-
+<!--    <script type="module" src="js/js_usuario.js"></script>-->
     <script type="module" src="js/header.js"></script>
     <script type="text/javascript" src="js/headersinmodule.js"></script>
     <script type="module" src="js/js_reserva.js"></script>
-<!--    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 </html>

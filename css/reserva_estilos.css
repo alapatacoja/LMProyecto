@@ -1,7 +1,7 @@
 .fondo{
     margin-left: 5%;
     width: 90%;
-    margin-top: 10%;
+    margin-top: 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,9 +17,11 @@
   padding: 50px;
   justify-content: space-between;
   align-items: center;
-  background: lightblue;
   text-align: center;
     margin-right: 5%;
+    border: 2px solid black;
+    border-radius: 20px;
+    background: lightgray;
 }
 
 
@@ -76,6 +78,44 @@ p{
   background: black;
   height: 10px;
   margin-bottom: 15%;
-  box-shadow: 0 13px 20px yellow;
+  box-shadow: 0 13px 20px #F0A935;
 }
 
+
+.cuadro{
+    width: 40%;
+    margin-left: 5%;
+    background: white;
+    margin-top: 2%;
+    padding: 15px;
+    display: flex;
+
+}
+
+img{
+    width: 150px;
+    border: 2px solid grey;
+}
+
+.fondo .cuadro .contentPeli{
+    margin-left: 5%;
+}
+
+.botonreserva{
+    margin-top: 5%;
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    background: #f0a935;
+    border-radius: 5px;
+    overflow: hidden;
+    font-weight: 300;
+    transition: all .5s ease;
+    font-size: 20px;
+    place-content: center;
+}
+
+.botonreserva:hover{
+    background: #EC8033;
+    cursor: pointer;
+}

@@ -116,20 +116,21 @@ export const logout = async () => {
         // An error happened.
       });
 };
+var emailperfil = document.getElementById('bddemail');
 export const login = async (email,password) => {
     const citiesRef = collection(db,"users");
 
     const q1 = query(citiesRef, where("email", "==", email), where("password", "==", password));
 
     const querySnapshot = await getDocs(q1);
-    
+
 
     querySnapshot.forEach((doc) => {
         user = doc.data();
         console.log(user);
         const li = document.getElementById("logger");
-        li.innerHTML = user.email;
         sessionStorage.setItem('role',user.role);
+        emailperfil.innerHTML = user.email;
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in
@@ -146,7 +147,6 @@ export const login = async (email,password) => {
     });
 
 }
-
 export const getUser = async () => {
     const user = auth.currentUser;
     return user;
@@ -208,23 +208,3 @@ onAuthStateChanged(auth, (userWithEmail) => {
   });
 
 
-//https://stackoverflow.com/questions/70700322/how-do-i-update-my-navbar-once-a-user-is-logged-in-from-log-in-to-profile
-
-
-/*HEADER*/
-/*
-const HEADER = () => {
-    return <header id="header">
-                <Link to="/Index.html" class="logo">
-                    <img src="imgs/ELMOCINES.png" alt="logo" class="logo" onmouseover="hover(this)" onmouseout="unhover(this)"/>
-                </Link>
-                <ul class="menu">
-                    <li class="1"> <Link to="/Index.html" class="item">inicio</Link></li>
-                    <li class="2"> <Link to="/Cartelera.html" class="item">cartelera</Link></li>
-                    {user && <Link to="/ListaReservas.html" class="item">Reservas</Link>}
-                    {!user && <Link to="/Usuarios.html" class="item">Usuarios</Link>}
-                    <Link to="/Login.html"><li class="login-header" id="logger">login</li></Link>
-                </ul>
-            </header>
-}
-*/

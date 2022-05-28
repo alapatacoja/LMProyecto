@@ -18,7 +18,6 @@
     <ul class="menu">
         <li class="1"> <a href="Index.html" class="item">inicio</a></li>
         <li class="2"> <a href="Cartelera.html" class="item">cartelera</a></li>
-        <li class="3"> <a href="Perfil.html" class="item">Perfil</a></li>
         <li class="login-header" id="logger">login</li>
     </ul>
 </header>
@@ -31,7 +30,7 @@
         <div class="emails">
             <h2>Tu Perfil</h2>
             <div class="email">Email</div>
-            <div class="email bdd">(hay que sacarlo de la bdd)</div>
+            <div id="bddemail" class="email">(el email va aqui uwu)</div>
         </div>
     </div>
 
@@ -41,15 +40,13 @@
 
     <div class="botones">
     <button id="listaReservas">
-        <a href="ListaReservas.html">
         <span class="textobtn">RESERVAS</span>
         <span class="iconitobtn">
             <ion-icon name="chevron-forward-outline">
             </ion-icon>
         </span>
-        </a>
     </button>
-    <button id="logout" >
+    <button id="logout">
         <span class="textobtn">CERRAR SESION</span>
         <span class="iconitobtn">
             <ion-icon name="chevron-forward-outline">
@@ -57,6 +54,10 @@
         </span>
     </button>
     </div>
+        <div class="listareservas">
+            <h2>Reservas</h2>
+            <div id="reservas"></div>
+        </div>
 </div>
 
     <script type="text/javascript" src="js/headersinmodule.js"></script>
