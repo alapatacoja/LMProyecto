@@ -1,4 +1,4 @@
-import { getUser } from "./js_general.js";
+import { getUser, logout } from "./js_general.js";
 
 let header = document.getElementById("header");
 
@@ -11,7 +11,7 @@ logger.addEventListener('click', async (e) =>{
         window.location.href ='ListaReservas.html' ;
     }
     else{
-        window.location.href ='Login.html' ;
+        logout();
     }
 });
 
