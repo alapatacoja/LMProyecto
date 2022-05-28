@@ -1,3 +1,7 @@
+*{
+    font-family: 'Hammersmith One', sans-serif;
+}
+
 .fondo{
     place-content: center;
     display: flex;
@@ -6,7 +10,6 @@
 
 h2{
     font-size: 30px;
-    position: relative;
     z-index: 2;
 }
 
@@ -78,4 +81,23 @@ h2{
 .botonydiv img{
     height: 200px;
     margin-right: 30px;
+}
+
+.botones{
+    display: flex;
+}
+
+.botones button{
+    margin-right: 50px;
+    margin-top: 5%;
+    background: -webkit-linear-gradient(top, #E32F30, #E75832);
+    border-radius: 5px;
+    transition: all 0.6s ease;
+    padding: 15px 50px;
+}
+
+.botones button:hover {
+    left: 0;
+    background: -webkit-linear-gradient(top, #EC8033, #F0A935);
+    transition: all 0.6s ease;
 }
