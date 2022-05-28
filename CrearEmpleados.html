@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header id="header">
+            <a href="Index.html" class="logo">
+                <img src="imgs/ELMOCINES.png" alt="logo" class="logo" onmouseover="hover(this)" onmouseout="unhover(this)"/>
+            </a>
+    
+            <ul class="menu">
+                <li> <a href="Index.html" class="item">inicio</a></li>
+                <li> <a href="Cartelera.html" class="item">cartelera</a></li>
+                <li> <a href="Estrenos.html" class="item">estrenos</a></li>
+                <li><a href="Usuarios.html" class="item">Usuarios</a></li>
+                <a href="Login.html"><li class="login-header" id="logger">login</li></a>
+            </ul>
+        </header>
+    
+        <div class="fondo">
+            <h1>REGISTRAR EMPLEADOS</h1>
+            <form class="crearempleados">
+                <div class="texto">
+                    <input type="email" required placeholder="Email" id="emailRegistro">
+                </div>
+                <div class="texto">
+                    <input type="password" required placeholder="Contraseña" id="passwordRegistro">
+                </div>
+                <p id="passwordErronea"></p>
+                <div class="texto">
+                    <input type="password" required placeholder="Confirmar Contraseña" id="confirmPasswordRegistro">
+                </div>
+                <div class="boton">
+                    <div class="boton-layer"></div>
+                        <input type="submit" value="Registrar">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
