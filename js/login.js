@@ -14,7 +14,7 @@ loginForm.addEventListener("submit",async (e) => {
   try{
       console.log("Username "+email.value+" Password: "+pswd.value);
       await login(email.value,pswd.value);
-  }catch (eror){
+  }catch (error){
       console.log(error);
   }
 });

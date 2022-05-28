@@ -6,6 +6,7 @@ import {
 
 var buttonLista = document.getElementById('listaReservas');
 var reservaslista = document.getElementById('reservas');
+var logoutButton = document.getElementById('logout');
 
 window.addEventListener ('DOMContentLoaded', async (event) => {
     
@@ -35,6 +36,7 @@ buttonLista.addEventListener ('click', async(e) =>{
         let reserva = doc.data();
         let nombre = reserva.titulo;
         let dia = reserva.dia;
+        let precio = reserva.precio;
         str += `<li>Título: ${nombre}</li>
         <li>Día: ${dia}</li>`;
         let asientos = reserva.asientos;
@@ -43,10 +45,17 @@ buttonLista.addEventListener ('click', async(e) =>{
             let letra = asiento.letra;
             str += `<li>FILA: ${num} COLUMNA: ${letra}</li>`;
         });
+
+        str += `<li>PRECIO: ${precio}</li>`
         str += '------------------------------------------------------------';
         });
         str += `</ul>`
     reservaslista.innerHTML = str;
 
+});
+
+logoutButton.addEventListener('click', async (e) => {
+    await logout();
+    window.location.href = 'Index.html';
 });
 

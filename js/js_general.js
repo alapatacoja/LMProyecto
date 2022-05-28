@@ -116,7 +116,6 @@ export const logout = async () => {
         // An error happened.
       });
 };
-var emailperfil = document.getElementById('bddemail');
 export const login = async (email,password) => {
     const citiesRef = collection(db,"users");
 
@@ -130,7 +129,7 @@ export const login = async (email,password) => {
         console.log(user);
         const li = document.getElementById("logger");
         sessionStorage.setItem('role',user.role);
-        emailperfil.innerHTML = user.email;
+
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in
