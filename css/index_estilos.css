@@ -44,8 +44,8 @@
 }
 
 .manualbtn{
-    border: 1px solid grey;
-    padding: 5px;
+    border: 1px solid black;
+    padding: 7px;
     border-radius: 10px;
     cursor: pointer;
     transition: .5s;
@@ -77,6 +77,15 @@
     margin-left: -60%;
 }
 
+#radio5:checked ~ .uno{
+    margin-left: -80%;
+}
+
+#radio1:checked ~ .manualbtn{
+    background-color: #F0A935;
+}
+
+
 .autoheader{
     position: absolute;
     width: 90%;
@@ -104,7 +113,7 @@
 }
 
 
-#radio2:checked ~ .autobtn2{
+#radio2:checked ~ .manualbtn{
     background: #F0A935;
 }
 

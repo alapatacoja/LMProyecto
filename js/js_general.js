@@ -18,6 +18,8 @@
   } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
 
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from 'https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js';;
+  //import { Link } from 'react-router-dom';
+
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -172,3 +174,24 @@ export const addReserva = async (titulo,dia,hora,asientos) => {
     
 }
 
+
+//https://stackoverflow.com/questions/70700322/how-do-i-update-my-navbar-once-a-user-is-logged-in-from-log-in-to-profile
+
+
+/*HEADER*/
+/*
+const HEADER = () => {
+    return <header id="header">
+                <Link to="/Index.html" class="logo">
+                    <img src="imgs/ELMOCINES.png" alt="logo" class="logo" onmouseover="hover(this)" onmouseout="unhover(this)"/>
+                </Link>
+                <ul class="menu">
+                    <li class="1"> <Link to="/Index.html" class="item">inicio</Link></li>
+                    <li class="2"> <Link to="/Cartelera.html" class="item">cartelera</Link></li>
+                    {user && <Link to="/ListaReservas.html" class="item">Reservas</Link>}
+                    {!user && <Link to="/Usuarios.html" class="item">Usuarios</Link>}
+                    <Link to="/Login.html"><li class="login-header" id="logger">login</li></Link>
+                </ul>
+            </header>
+}
+*/
