@@ -7,7 +7,7 @@ var logger = document.getElementById('logger');
 
 logger.addEventListener('click', async (e) =>{
     let user = await getUser();
-    if(user !== null){
+    if(user != null){
         await logout();
         window.location.href ='Index.html' ;
     }
