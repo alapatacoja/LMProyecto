@@ -8,7 +8,9 @@
     flex-wrap: wrap;
     background: white;
     margin-bottom: 5%;
+    padding-top: 30px;
     padding-bottom: 50px;
+    place-content: center;
 }
 
 .mapa {
@@ -17,6 +19,7 @@
   align-items: center;
   background: lightblue;
   text-align: center;
+    margin-right: 5%;
 }
 
 
