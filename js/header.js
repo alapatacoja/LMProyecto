@@ -1,4 +1,4 @@
-import { getUser, logout } from "./js_general.js";
+import { getUser } from "./js_general.js";
 
 let header = document.getElementById("header");
 
@@ -8,8 +8,7 @@ var logger = document.getElementById('logger');
 logger.addEventListener('click', async (e) =>{
     let user = await getUser();
     if(user != null){
-        await logout();
-        window.location.href ='Index.html' ;
+        window.location.href ='Perfil.html' ;
     }
     else{
         

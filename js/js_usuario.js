@@ -5,7 +5,6 @@ import {
 } from "./js_general.js";
 
 var buttonLista = document.getElementById('listaReservas');
-var logoutButton = document.getElementById('logout');
 
 window.addEventListener ('DOMContentLoaded', async (event) => {
     
@@ -30,7 +29,7 @@ buttonLista.addEventListener ('click', async(e) =>{
     let user = await getUser();
     let reservas = await getReservasFromUser(user);
 
-    let str = `<ul>`;
+    let str = `<span class="textobtn">RESERVAS</span><ul>`;
     reservas.forEach((doc) => {
         let reserva = doc.data();
         let nombre = reserva.titulo;
@@ -45,11 +44,7 @@ buttonLista.addEventListener ('click', async(e) =>{
         });
         });
         str += `</ul>`
-    buttonLista.innerHTML += str;
+    buttonLista.innerHTML = str;
 
-});
-
-logoutButton.addEventListener('click', async(e) => {
-    logout();
 });
 
