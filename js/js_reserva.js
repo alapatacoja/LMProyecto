@@ -13,6 +13,9 @@ var reservedDate;
 const asientos = document.querySelectorAll('.fila .asiento:not(.reservado)');
 const mapa = document.querySelector('.mapa');
 
+const precioBase = 7.20;
+var precioH2;
+
 const botonConfirmar = document.getElementById('botonConfirmar');
 
 
@@ -25,9 +28,12 @@ window.addEventListener ('DOMContentLoaded', async (event)  => {
   marcoFecha.innerHTML += `
         <label for="resDate">Fecha de la Reserva:</label>
         <input type="date" id="resDate" min="${nowdate}">
+        <label for="precioTotal">Precio:</label>
+        <h2 id="precioTotal"></h2>
     `
 
   let reservedDateDocument = document.getElementById('resDate');
+  precioH2 = document.getElementById('precioTotal');
   reservedDate = today;
   reservedDateDocument.value = nowdate;
 
@@ -86,7 +92,7 @@ mapa.addEventListener('click', (e) => {
   if (e.target.classList.contains('asiento') && !e.target.classList.contains('reservado')) {
     e.target.classList.toggle('seleccionado');
 
-    if(asientosSeleccionados.length >= 2 && sessionStorage.getItem('role') == 'Empleado'){
+    if(asientosSeleccionados.length >= 2 && sessionStorage.getItem('role') == 'empleado'){
       alert('No se permiten más de dos asientos por empleado');
     }
     else{
@@ -127,6 +133,16 @@ function updateSelectedCount(){
       asientosSeleccionados.unshift(asiento);
   });
 
+  let precio = precioBase;
+  var precioActual = precio * asientosSeleccionados.length;
+  let role = sessionStorage.getItem('role');
+  if (role == 'client'){
+    precioActual = precioActual*0.9;
+  }
+  else if ( role == 'admin' || role == 'empleado'){
+    precioActual = precioActual * 0.75;
+  } 
+  precioH2.textContent = precioActual;
   console.log(asientosSeleccionados);
 }
 
