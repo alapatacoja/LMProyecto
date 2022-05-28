@@ -8,10 +8,12 @@ var logger = document.getElementById('logger');
 logger.addEventListener('click', async (e) =>{
     let user = await getUser();
     if(user !== null){
-        window.location.href ='ListaReservas.html' ;
+        await logout();
+        window.location.href ='Index.html' ;
     }
     else{
-        logout();
+        
+        window.location.href = "Login.html";
     }
 });
 
