@@ -164,14 +164,14 @@ export const getReserva = async (titulo,dia,hora) => {
 }
 
 
-export const addReserva = async (titulo,dia,hora,asientos,user) => {
+export const addReserva = async (titulo,dia,hora,asientos,user,precio,imgurl) => {
 
     //const q1 = query(ticketsRef, where("titulo", "==", titulo), 
     //    where("dia", "==", dia), where("hora", "==", hora));
 
     //const querySnapshot = await getDocs(q1);
 
-    addDoc(collection(db,"tickets"), {titulo, dia, hora, asientos,user}).then(function() {
+    addDoc(collection(db,"tickets"), {titulo, dia, hora, asientos,user,precio,imgurl}).then(function() {
         sessionStorage.removeItem('movieTitle');
         sessionStorage.removeItem('movieDescription');
         sessionStorage.removeItem('movieImg');

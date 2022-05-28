@@ -14,6 +14,7 @@ const asientos = document.querySelectorAll('.fila .asiento:not(.reservado)');
 const mapa = document.querySelector('.mapa');
 
 const precioBase = 7.20;
+var precioActual;
 var precioH2;
 
 const botonConfirmar = document.getElementById('botonConfirmar');
@@ -37,13 +38,45 @@ window.addEventListener ('DOMContentLoaded', async (event)  => {
   reservedDate = today;
   reservedDateDocument.value = nowdate;
 
-  reservedDateDocument.addEventListener('change', (selectedDate) => {
+  reservedDateDocument.addEventListener('change', async (selectedDate) => {
     reservedDate = getDate(selectedDate.target.value);
     if(reservedDate < today){
       alert('fecha no valida');
       console.log(reservedDateDocument);
       reservedDateDocument.value = nowdate;
       reservedDate = today;
+    }
+    else{
+      let aux = document.getElementsByClassName('reservado');
+      while (aux.length > 0){
+        aux[0].classList.remove("reservado");
+      }
+      asientosOcupados = new Set();
+      const bookings = await getReserva(reservedMovie,getStrDate(reservedDate),"ahora");
+
+      bookings.forEach((doc) => {
+        let booking = doc.data();
+        let asientos = booking.asientos;
+        asientos.forEach((asiento) => {
+          let letra = asiento.letra;
+          let numero = asiento.num;
+          let asient = {
+            letra: asiento.letra,
+            numero: asiento.num
+          };
+  
+          addAsientoOcupado(asient);
+          
+        });
+  
+    });
+
+    
+    asientosOcupados.forEach((asiento1) => {
+      let divAsiento = document.getElementsByClassName(asiento1.letra+' '+asiento1.numero).item(0);
+          divAsiento.classList.toggle('reservado');
+    });
+      
     }
 
   });
@@ -79,10 +112,11 @@ window.addEventListener ('DOMContentLoaded', async (event)  => {
 
 botonConfirmar.addEventListener('click', async (confirmar) => {
   let reservedMovie = sessionStorage.getItem('movieTitle');
+  let imgMovie = sessionStorage.getItem('movieImg');
   if (asientos.length > 0){
     let user = await getUser();
     if (user !== null) {
-      await addReserva(reservedMovie,getStrDate(reservedDate),"ahora",asientosSeleccionados,user.email);
+      await addReserva(reservedMovie,getStrDate(reservedDate),"ahora",asientosSeleccionados,user.email,precioActual,imgMovie);
     }
   }
 
@@ -134,7 +168,7 @@ function updateSelectedCount(){
   });
 
   let precio = precioBase;
-  var precioActual = precio * asientosSeleccionados.length;
+  precioActual = precio * asientosSeleccionados.length;
   let role = sessionStorage.getItem('role');
   if (role == 'client'){
     precioActual = precioActual*0.9;
