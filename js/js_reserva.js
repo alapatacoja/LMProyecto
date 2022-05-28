@@ -10,7 +10,7 @@ var asientosOcupados = new Set();
 
 var today;
 var reservedDate;
-const asientos = document.querySelectorAll('.fila .asiento:not(.reservado');
+const asientos = document.querySelectorAll('.fila .asiento:not(.reservado)');
 const mapa = document.querySelector('.mapa');
 
 const botonConfirmar = document.getElementById('botonConfirmar');
