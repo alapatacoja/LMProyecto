@@ -1,7 +1,7 @@
 import { getUser } from "./js_general.js";
 
 let header = document.getElementById("header");
-let logo = document.getElementById("logo");
+
 
 var logger = document.getElementById('logger');
 
@@ -24,15 +24,5 @@ logger.addEventListener('click', async (e) =>{
          header.style.background = 'transparent'
  })
 
- function hover(logo) {
-     logo.style.transition = "2s";
-     logo.setAttribute('src', "/imgs/EMOCINES.png");
 
- }
-
- function unhover(logo) {
-     logo.style.transition = "2s";
-     logo.setAttribute('src', "/imgs/ELMOCINES.png");
-
- }
 
